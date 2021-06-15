@@ -1,0 +1,28 @@
+{{> header }}
+{{> nav }}
+    <section class="container my-3">
+        <form class="row g-3">
+            <div class="col-md-12">
+                <label for="inputEmail4" class="form-label" >name</label>
+                <input type="text" class="form-control" id="inputEmail4" name="name" value={{tasks.name}}>
+            </div>
+            <div class="col-md-12">
+                <label for="inputPassword4" class="form-label">content</label>
+                <input type="text" class="form-control" id="inputPassword4" name="content" value={{tasks.content}}>
+            </div>
+            <div>
+                <div class="form-check">
+                <input class="form-check-input" type="checkbox" value={{tasks.status}} id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    status
+                </label>
+                </div>
+            </div>
+            
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </div>
+            
+        </form>
+    </section>
+{{>footer}}

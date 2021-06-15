@@ -1,0 +1,42 @@
+
+{{> header }}
+{{> nav }}
+
+{{#if status}}
+    <div class="alert alert-danger">
+            no data found
+    </div>
+{{/if}}
+{{#if tasksLen}}
+    <div class="alert alert-danger ">no data to show</div>
+{{else}}
+
+<section>
+    <table class="table container my-4">
+        <thead>
+            <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">content</th>
+            <th scope="col">Status</th>
+            <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each tasks}}
+                <tr>
+                    <th scope="row">{{this.id}}</th>
+                    <td>{{this.name}}</td>
+                    <td>{{this.content}}</td>
+                    <th scope="col">{{this.status}}</th>
+                    <td> <a href="/edit/{{this.id}}" class="btn btn-primary">Edit</a>  <a href="/delete/{{this.id}}" class="btn btn-danger">delete</a> <a href="/single/{{this.id}}" class="btn btn-success">Show</a> </td>
+                </tr>
+            {{/each}}
+
+            
+        </tbody>
+        </table>
+</section>
+{{/if}}
+
+{{>footer}}

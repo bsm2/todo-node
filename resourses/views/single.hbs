@@ -1,0 +1,30 @@
+
+{{> header }}
+{{> nav }}
+
+{{#if status}}
+    <div class="alert alert-danger">
+            no data found
+    </div>
+{{/if}}
+    <section>
+    <table class="table container my-4">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">name</th>
+                <th scope="col">content</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr> 
+                    <th scope="row">{{myData.id}}</th>
+                    <td>{{myData.name}}</td>
+                    <td>{{myData.content}}</td>
+                    <td> <a href="/edit/{{myData.id}}" class="btn btn-primary">Edit</a>  <a href="/delete/{{myData.id}}" class="btn btn-danger">delete</a></td>
+                </tr>  
+        </tbody>
+        </table>
+</section>
+{{>footer}}

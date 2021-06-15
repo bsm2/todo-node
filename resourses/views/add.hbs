@@ -1,0 +1,62 @@
+
+{{> header }}
+{{> nav }}
+
+{{#if status}}
+    <div class="alert alert-danger">
+            no data found
+    </div>
+{{/if}}
+
+{{#if errorStatus}}
+    <div class="container alert alert-danger my-3 ">
+        <ul>
+        {{#each errors}}
+            <li>{{this}}</li>
+        {{/each}}
+        </ul>
+    </div>
+{{/if}}
+    <section class="container my-3">
+        <form class="row g-3">
+            <div class="col-md-12">
+                <label for="inputEmail4" class="form-label" >name</label>
+                <input type="text" class="form-control" id="inputEmail4" name="name"
+                    {{#if editStatus}}
+                        value="{{tasks.name}}"
+                    {{/if}}
+                >
+            </div>
+            <div class="col-md-12">
+                <label for="inputPassword4" class="form-label">content</label>
+                <input type="text" class="form-control" id="inputPassword4" name="content" 
+                    {{#if editStatus}}
+                        value="{{tasks.content}}"
+                    {{/if}}
+                >
+            </div>
+            
+            <div class="mb-3">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" name="status" 
+                    {{#if editStatus }}
+                        {{#if tasks.status }}
+                            checked
+                        {{/if}}
+                    {{/if}}
+                >
+                <label class="form-check-label" for="exampleCheck1">Task Status</label>
+            </div>
+
+            <div class="col-12">
+                {{#if editStatus}}
+                    <button type="submit" class="btn btn-primary">Edit</button>
+                {{else}}
+                    <button type="submit" class="btn btn-primary">Add</button>
+                {{/if}}
+
+                
+            </div>
+            
+        </form>
+    </section>
+{{>footer}}
